@@ -4,6 +4,14 @@
  */
 package zoologico.tarea2;
 
+import java.awt.BorderLayout;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JPanel;
+
 /**
  *
  * @author Wilson
@@ -15,6 +23,7 @@ public class Clasificar extends javax.swing.JFrame {
      */
     public Clasificar() {
         initComponents();
+        
     }
 
     /**
@@ -26,22 +35,195 @@ public class Clasificar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        labelAnimal = new javax.swing.JLabel();
+        enviar = new javax.swing.JButton();
+        volver = new javax.swing.JButton();
+        panelCambiante = new javax.swing.JPanel();
+        peso = new javax.swing.JTextField();
+        color = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jToggleButton1 = new javax.swing.JToggleButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("¿A que especie pertenece el siguiente animal?");
+
+        labelAnimal.setText("Aprete boton generar animal");
+
+        enviar.setText("Generar animal");
+        enviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enviarActionPerformed(evt);
+            }
+        });
+
+        volver.setText("<<Volver");
+        volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelCambianteLayout = new javax.swing.GroupLayout(panelCambiante);
+        panelCambiante.setLayout(panelCambianteLayout);
+        panelCambianteLayout.setHorizontalGroup(
+            panelCambianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 267, Short.MAX_VALUE)
+        );
+        panelCambianteLayout.setVerticalGroup(
+            panelCambianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 117, Short.MAX_VALUE)
+        );
+
+        peso.setText("Introduzca peso del animal");
+
+        color.setText("Introduzca color del animal");
+        color.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                colorActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Peso");
+
+        jLabel3.setText("Color");
+
+        jToggleButton1.setText("Enviar>>");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(panelCambiante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel2)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(peso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(44, 44, 44)
+                                            .addComponent(jLabel3))
+                                        .addComponent(labelAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(enviar)
+                                    .addComponent(color, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(178, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(volver)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jToggleButton1)
+                        .addGap(60, 60, 60))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelAnimal, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(enviar))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(peso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3)
+                            .addComponent(color, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addComponent(panelCambiante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(volver)
+                    .addComponent(jToggleButton1))
+                .addGap(21, 21, 21))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviarActionPerformed
+
+        try (Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/zoobd", "root", "yuyin10")) {
+            PreparedStatement ps = c.prepareStatement("SELECT nombre,grupo FROM animales ORDER BY RAND() LIMIT 1;");
+            ResultSet rs=ps.executeQuery();
+            
+            if(rs.next()){
+                labelAnimal.setText(rs.getString("nombre"));
+                System.out.print(rs.getString("grupo"));
+                System.out.print("pp");
+                if(rs.getString("grupo").equals("Mamiferos")){    
+                    mostrarPanel(new ClasificarMamiferos());
+                }
+                else if(rs.getString("grupo").equals("Aves")){    
+                    mostrarPanel(new ClasificarAves());
+                }
+                else if(rs.getString("grupo").equals("Peces")){    
+                    mostrarPanel(new ClasificarPeces());
+                }
+                else if(rs.getString("grupo").equals("Reptiles")){    
+                    mostrarPanel(new ClasificarReptiles());
+                }
+                else if(rs.getString("grupo").equals("Anfibios")){    
+                    mostrarPanel(new ClasificarAnfibios());
+                }
+                else if(rs.getString("grupo").equals("Antropodos")){    
+                    mostrarPanel(new ClasificarAntropodos());
+                }
+                else if(rs.getString("grupo").equals("Moluscos")){    
+                    mostrarPanel(new ClasificarMoluscos());
+                }
+                else if(rs.getString("grupo").equals("Celentereos")){    
+                    mostrarPanel(new ClasificarCelentereos());
+                }
+                else if(rs.getString("grupo").equals("Poriferos")){    
+                    mostrarPanel(new ClasificarPoriferos());
+                }
+                else if(rs.getString("grupo").equals("Gusanos")){    
+                    mostrarPanel(new ClasificarGusanos());
+                }
+                else if(rs.getString("grupo").equals("Equinodermos")){    
+                    mostrarPanel(new ClasificarEquinodermos());
+                }
+            }
+            c.close();
+        }
+        catch (SQLException ex) {
+            System.out.println("ERROR");
+        }
+    }//GEN-LAST:event_enviarActionPerformed
+
+    private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
+        new ZoologicoGui().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_volverActionPerformed
+
+    private void colorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_colorActionPerformed
+    
+    private void mostrarPanel(JPanel p){
+        p.setSize(257,116);
+        p.setLocation(0,0);
+        
+        panelCambiante.removeAll();
+        panelCambiante.add(p,BorderLayout.CENTER);
+        panelCambiante.revalidate();
+        panelCambiante.repaint();
+    }
     /**
      * @param args the command line arguments
      */
@@ -78,5 +260,15 @@ public class Clasificar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField color;
+    private javax.swing.JButton enviar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JLabel labelAnimal;
+    private javax.swing.JPanel panelCambiante;
+    private javax.swing.JTextField peso;
+    private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 }

@@ -83,18 +83,18 @@ public class ZoologicoGui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
-       mostrarPanel(new Agregar());
+       mostrarFrame(new Agregar());
     }//GEN-LAST:event_agregarActionPerformed
 
     private void clasificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clasificarActionPerformed
-        mostrarPanel(new Clasificar());
+        mostrarFrame(new Clasificar());
     }//GEN-LAST:event_clasificarActionPerformed
 
     private void reportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportesActionPerformed
-        mostrarPanel(new Reportes());
+        mostrarFrame(new Reportes());
     }//GEN-LAST:event_reportesActionPerformed
     
-    private void mostrarPanel(JFrame p){
+    private void mostrarFrame(JFrame p){
         p.setVisible(true);
         this.setVisible(false);
     }
