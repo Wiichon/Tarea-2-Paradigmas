@@ -56,6 +56,6 @@ public class ClasificarMamiferos extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField patasAnimal;
+    public javax.swing.JTextField patasAnimal;
     // End of variables declaration//GEN-END:variables
 }

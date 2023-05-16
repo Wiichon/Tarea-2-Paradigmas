@@ -111,6 +111,12 @@ public class Agregar extends javax.swing.JFrame {
         });
 
         grupo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mamiferos", "Aves", "Reptiles", "Anfibios", "Peces", "Antropodos", "Moluscos", "Equinodermos", "Gusanos", "Poriferos", "Celentereos" }));
+        grupo.setToolTipText("");
+        grupo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                grupoActionPerformed(evt);
+            }
+        });
 
         volver.setText("<<Volver");
         volver.addActionListener(new java.awt.event.ActionListener() {
@@ -206,6 +212,10 @@ public class Agregar extends javax.swing.JFrame {
         new ZoologicoGui().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_volverActionPerformed
+
+    private void grupoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_grupoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_grupoActionPerformed
 
     /**
      * @param args the command line arguments

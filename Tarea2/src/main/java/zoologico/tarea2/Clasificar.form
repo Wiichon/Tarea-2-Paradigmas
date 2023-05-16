@@ -45,7 +45,7 @@
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="enviar" min="-2" max="-2" attributes="0"/>
+                                  <Component id="generarAnimal" min="-2" max="-2" attributes="0"/>
                                   <Component id="color" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -55,7 +55,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="volver" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jToggleButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="bEnviar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -70,7 +70,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="labelAnimal" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                  <Component id="enviar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="generarAnimal" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -91,7 +91,7 @@
               <EmptySpace pref="77" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="volver" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jToggleButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="bEnviar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
           </Group>
@@ -109,12 +109,12 @@
         <Property name="text" type="java.lang.String" value="Aprete boton generar animal"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="enviar">
+    <Component class="javax.swing.JButton" name="generarAnimal">
       <Properties>
         <Property name="text" type="java.lang.String" value="Generar animal"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="enviarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="generarAnimalActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="volver">
@@ -163,10 +163,13 @@
         <Property name="text" type="java.lang.String" value="Color"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton1">
+    <Component class="javax.swing.JToggleButton" name="bEnviar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Enviar&gt;&gt;"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bEnviarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
