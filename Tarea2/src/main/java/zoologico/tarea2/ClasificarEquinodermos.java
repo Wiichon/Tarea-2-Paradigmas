@@ -58,6 +58,6 @@ public class ClasificarEquinodermos extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Texto1;
-    private javax.swing.JComboBox<String> tipo;
+    public javax.swing.JComboBox<String> tipo;
     // End of variables declaration//GEN-END:variables
 }

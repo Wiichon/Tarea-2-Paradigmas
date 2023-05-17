@@ -20,7 +20,7 @@
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
-                  <Component id="concha" alignment="0" max="32767" attributes="0"/>
+                  <Component id="tentaculos" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="134" max="32767" attributes="0"/>
           </Group>
@@ -32,7 +32,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="concha" min="-2" max="-2" attributes="0"/>
+              <Component id="tentaculos" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="63" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -44,7 +44,10 @@
         <Property name="text" type="java.lang.String" value="Tiene tentaculos"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="concha">
+    <Component class="javax.swing.JTextField" name="tentaculos">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

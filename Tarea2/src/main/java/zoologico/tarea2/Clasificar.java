@@ -22,9 +22,18 @@ public class Clasificar extends javax.swing.JFrame {
     /**
      * Creates new form Clasificar
      */
-    public String Nombre;
-    public String Grupo;
-    public ClasificarMamiferos cMamiferos;
+    private String Nombre;
+    private String Grupo;
+    private ClasificarMamiferos cMamiferos;
+    private ClasificarAves cAves;
+    private ClasificarAnfibios cAnfibios;
+    private ClasificarReptiles cReptiles;
+    private ClasificarPeces cPeces;
+    private ClasificarAntropodos cAntropodos;
+    private ClasificarCelentereos cCelentereos;
+    private ClasificarEquinodermos cEquinodermos;
+    private ClasificarGusanos cGusanos;
+    private ClasificarMoluscos cMoluscos;
     public Clasificar() {
         initComponents();
         
@@ -177,36 +186,45 @@ public class Clasificar extends javax.swing.JFrame {
                 switch (Grupo) {
                     case "Mamiferos":
                          cMamiferos = new ClasificarMamiferos();
-                        mostrarPanel(cMamiferos);
+                            mostrarPanel(cMamiferos);
                         break;
                     case "Aves":
-                        mostrarPanel(new ClasificarAves());
+                        cAves=new ClasificarAves();
+                        mostrarPanel(cAves);
                         break;
                     case "Peces":
-                        mostrarPanel(new ClasificarPeces());
+                        cPeces=new ClasificarPeces();
+                        mostrarPanel(cPeces);
                         break;
                     case "Reptiles":
-                        mostrarPanel(new ClasificarReptiles());
+                        cReptiles=new ClasificarReptiles();
+                        mostrarPanel(cReptiles);
                         break;
                     case "Anfibios":
-                        mostrarPanel(new ClasificarAnfibios());
+                        cAnfibios= new ClasificarAnfibios();
+                        mostrarPanel(cAnfibios);
                         break;
                     case "Antropodos":
-                        mostrarPanel(new ClasificarAntropodos());
+                        cAntropodos =new ClasificarAntropodos();
+                        mostrarPanel(cAntropodos);
                         break;
                     case "Moluscos":
-                        mostrarPanel(new ClasificarMoluscos());
+                        cMoluscos= new ClasificarMoluscos();
+                        mostrarPanel(cGusanos);
                         break;
                     case "Celentereos":
-                        mostrarPanel(new ClasificarCelentereos());
+                        cCelentereos=new ClasificarCelentereos();
+                        mostrarPanel(cCelentereos);
                         break;
                     case "Poriferos":
                         break;
                     case "Gusanos":
-                        mostrarPanel(new ClasificarGusanos());
+                        cGusanos=new ClasificarGusanos();
+                        mostrarPanel(cGusanos);
                         break;
                     case "Equinodermos":
-                        mostrarPanel(new ClasificarEquinodermos());
+                        cEquinodermos =new ClasificarEquinodermos();
+                        mostrarPanel(cEquinodermos);
                         break;
                     default:
                         break;
@@ -230,60 +248,57 @@ public class Clasificar extends javax.swing.JFrame {
 
     private void bEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEnviarActionPerformed
         try (Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/zoobd", "root", "yuyin10")) {
-            PreparedStatement ps = c.prepareStatement("INSERT INTO ? VALUES(?);");
-            String temp;
-            String temp2;
+            
+            String parametros= Grupo.toLowerCase()+"(nombre, peso, color";
+            String valores ="'"+Nombre+"',"+peso.getText()+",'"+color.getText()+"'";
             switch (Grupo) {
                     case "Mamiferos":
-                        temp=",n_patas)";
-                        temp2 =","+cMamiferos.patasAnimal.getText();
+                        parametros +=",n_patas";
+                        valores +=","+cMamiferos.patasAnimal.getText();
                         break;
                     case "Aves":
-                        temp="";
-                        temp2 ="";
+                        parametros+=",c_alas";
+                        valores +=",'"+cAves.c_alas.getText()+"'";
                         break;
                     case "Peces":
-                        temp="";
-                        temp2 ="";
+                        parametros+=",escamas,c_aletas";
+                        valores +=",'"+cPeces.escamas.getSelectedItem()+"',"+cPeces.aletas.getText()+"'";
                         break;
                     case "Reptiles":
-                        temp="";
-                        temp2 ="";
+                        parametros+=",tipo";
+                        valores +=",'"+cReptiles.tipoReptil.getSelectedItem()+"'";
                         break;
                     case "Anfibios":
-                        temp="";
-                        temp2 ="";
+                        parametros+=",piel";
+                        valores +=",'"+cAnfibios.tipoPiel.getSelectedItem()+"'";
                         break;
                     case "Antropodos":
-                        temp="";
-                        temp2 ="";
+                        parametros+=",c_pares_patas,antenas";
+                        valores +=",'"+cAntropodos.patasAntropodos.getText()+"','"+cAntropodos.antenas.getSelectedItem()+"'";
                         break;
                     case "Moluscos":
-                        temp="";
-                        temp2 ="";
+                        parametros+=",t_concha";
+                        valores +=","+cMoluscos.concha.getText();
                         break;
                     case "Celentereos":
-                        temp="";
-                        temp2 ="";
+                        parametros+=",tentaculos";
+                        valores +=",'"+cCelentereos.tentaculos.getText()+"'";
                         break;
                     case "Gusanos":
-                        temp="";
-                        temp2 ="";
+                        parametros+=",cuerpo";
+                        valores +=",'"+cGusanos.cuerpoGusano.getText()+"'";
                         break;
                     case "Equinodermos":
-                        temp="";
-                        temp2 ="";
+                        parametros+=",tipo";
+                        valores +=","+cEquinodermos.tipo.getSelectedItem();
                         break;
                     default:
-                        temp = ")";
-                        temp2 = ")";
+                        parametros = "";
+                        valores = "";
                         break;
                 }
-            ps.setString(1, Grupo.toLowerCase()+"(nombre,peso,color"+temp);
-            ps.setString(2, Nombre+","+peso.getText()+","+color.getText()+temp2);
-            System.out.println(Grupo.toLowerCase()+"(nombre,peso,color"+temp);
-            System.out.println(Nombre+","+peso.getText()+","+color.getText()+temp2);
-
+            System.out.println("INSERT INTO "+parametros+ ") VALUES ("+valores+");");
+            PreparedStatement ps = c.prepareStatement("INSERT INTO "+parametros+ ") VALUES ("+valores+");");
             ps.execute();
             c.close();
         }

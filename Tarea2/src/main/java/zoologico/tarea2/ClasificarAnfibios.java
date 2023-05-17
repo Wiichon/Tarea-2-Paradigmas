@@ -58,6 +58,6 @@ public class ClasificarAnfibios extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Texto1;
-    private javax.swing.JComboBox<String> tipoPiel;
+    public javax.swing.JComboBox<String> tipoPiel;
     // End of variables declaration//GEN-END:variables
 }

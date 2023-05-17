@@ -55,7 +55,7 @@ public class ClasificarMoluscos extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField concha;
+    public javax.swing.JTextField concha;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

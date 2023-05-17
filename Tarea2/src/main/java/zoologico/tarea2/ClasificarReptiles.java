@@ -59,6 +59,6 @@ public class ClasificarReptiles extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Texto1;
-    private javax.swing.JComboBox<String> tipoReptil;
+    public javax.swing.JComboBox<String> tipoReptil;
     // End of variables declaration//GEN-END:variables
 }
