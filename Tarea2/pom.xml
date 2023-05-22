@@ -7,8 +7,8 @@
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
             <version>8.0.33</version>
         </dependency>
     </dependencies>
@@ -16,6 +16,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <exec.mainClass>zoologico.tarea2.ZoologicoGui</exec.mainClass>
+        <exec.mainClass>zoologico.tarea2.Login</exec.mainClass>
     </properties>
 </project>

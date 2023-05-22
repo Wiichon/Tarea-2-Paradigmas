@@ -19,9 +19,8 @@ import javax.swing.JPanel;
 
 public class Clasificar extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Clasificar
-     */
+    public String usuario;
+    public String contrasena;
     private String Nombre;
     private String Grupo;
     private ClasificarMamiferos cMamiferos;
@@ -34,8 +33,10 @@ public class Clasificar extends javax.swing.JFrame {
     private ClasificarEquinodermos cEquinodermos;
     private ClasificarGusanos cGusanos;
     private ClasificarMoluscos cMoluscos;
-    public Clasificar() {
+    public Clasificar(String usuario,String contrasena) {
         initComponents();
+        this.usuario=usuario;
+        this.contrasena=contrasena;
         
     }
 
@@ -172,7 +173,7 @@ public class Clasificar extends javax.swing.JFrame {
 
     private void generarAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generarAnimalActionPerformed
 
-        try (Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/zoobd", "root", "yuyin10")) {
+        try (Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/zoobd", usuario, contrasena)) {
             PreparedStatement ps = c.prepareStatement("SELECT nombre,grupo FROM animales ORDER BY RAND() LIMIT 1;");
             ResultSet rs=ps.executeQuery();
             
@@ -235,7 +236,7 @@ public class Clasificar extends javax.swing.JFrame {
     }//GEN-LAST:event_generarAnimalActionPerformed
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
-        new ZoologicoGui().setVisible(true);
+        new ZoologicoGui(usuario,contrasena).setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_volverActionPerformed
 
@@ -244,7 +245,7 @@ public class Clasificar extends javax.swing.JFrame {
     }//GEN-LAST:event_colorActionPerformed
 
     private void bEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEnviarActionPerformed
-        try (Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/zoobd", "root", "yuyin10")) {
+        try (Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/zoobd", usuario, contrasena)) {
             
             String parametros= Grupo.toLowerCase()+"(nombre, peso, color";
             String valores ="'"+Nombre+"',"+peso.getText()+",'"+color.getText()+"'";
@@ -316,37 +317,7 @@ public class Clasificar extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Clasificar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Clasificar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Clasificar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Clasificar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Clasificar().setVisible(true);
-            }
-        });
-    }
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton bEnviar;
