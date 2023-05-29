@@ -108,7 +108,7 @@ public class ZoologicoGui extends javax.swing.JFrame {
     }//GEN-LAST:event_clasificarActionPerformed
 
     private void reportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportesActionPerformed
-        mostrarFrame(new Reportes());
+        mostrarFrame(new Reportes(usuario,contrasena));
     }//GEN-LAST:event_reportesActionPerformed
     
     private void mostrarFrame(JFrame p){

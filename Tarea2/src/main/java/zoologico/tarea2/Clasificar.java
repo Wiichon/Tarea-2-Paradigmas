@@ -4,6 +4,16 @@
  */
 package zoologico.tarea2;
 
+import zoologico.tarea2.paneles_clasificar.ClasificarCelentereos;
+import zoologico.tarea2.paneles_clasificar.ClasificarPeces;
+import zoologico.tarea2.paneles_clasificar.ClasificarAves;
+import zoologico.tarea2.paneles_clasificar.ClasificarMoluscos;
+import zoologico.tarea2.paneles_clasificar.ClasificarAntropodos;
+import zoologico.tarea2.paneles_clasificar.ClasificarReptiles;
+import zoologico.tarea2.paneles_clasificar.ClasificarAnfibios;
+import zoologico.tarea2.paneles_clasificar.ClasificarEquinodermos;
+import zoologico.tarea2.paneles_clasificar.ClasificarGusanos;
+import zoologico.tarea2.paneles_clasificar.ClasificarMamiferos;
 import java.awt.BorderLayout;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -88,7 +98,7 @@ public class Clasificar extends javax.swing.JFrame {
         );
         panelCambianteLayout.setVerticalGroup(
             panelCambianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 117, Short.MAX_VALUE)
+            .addGap(0, 176, Short.MAX_VALUE)
         );
 
         color.addActionListener(new java.awt.event.ActionListener() {
@@ -160,8 +170,8 @@ public class Clasificar extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(color, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
-                .addComponent(panelCambiante, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addComponent(panelCambiante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(volver)
                     .addComponent(bEnviar))
@@ -208,13 +218,16 @@ public class Clasificar extends javax.swing.JFrame {
                         break;
                     case "Moluscos":
                         cMoluscos= new ClasificarMoluscos();
-                        mostrarPanel(cGusanos);
+                        mostrarPanel(cMoluscos);
                         break;
                     case "Celentereos":
                         cCelentereos=new ClasificarCelentereos();
                         mostrarPanel(cCelentereos);
                         break;
                     case "Poriferos":
+                        panelCambiante.removeAll();
+                        panelCambiante.revalidate();
+                        panelCambiante.repaint();
                         break;
                     case "Gusanos":
                         cGusanos=new ClasificarGusanos();
@@ -250,55 +263,57 @@ public class Clasificar extends javax.swing.JFrame {
             String parametros= Grupo.toLowerCase()+"(nombre, peso, color";
             String valores ="'"+Nombre+"',"+peso.getText()+",'"+color.getText()+"'";
             switch (Grupo) {
-                    case "Mamiferos":
-                        parametros +=",n_patas";
-                        valores +=","+cMamiferos.patasAnimal.getText();
-                        break;
-                    case "Aves":
-                        parametros+=",c_alas";
-                        valores +=",'"+cAves.c_alas.getText()+"'";
-                        break;
-                    case "Peces":
-                        parametros+=",escamas,c_aletas";
-                        valores +=",'"+cPeces.escamas.getSelectedItem()+"',"+cPeces.aletas.getText()+"'";
-                        break;
-                    case "Reptiles":
-                        parametros+=",tipo";
-                        valores +=",'"+cReptiles.tipoReptil.getSelectedItem()+"'";
-                        break;
-                    case "Anfibios":
-                        parametros+=",piel";
-                        valores +=",'"+cAnfibios.tipoPiel.getSelectedItem()+"'";
-                        break;
-                    case "Antropodos":
-                        parametros+=",c_pares_patas,antenas";
-                        valores +=",'"+cAntropodos.patasAntropodos.getText()+"','"+cAntropodos.antenas.getSelectedItem()+"'";
-                        break;
-                    case "Moluscos":
-                        parametros+=",t_concha";
-                        valores +=","+cMoluscos.concha.getText();
-                        break;
-                    case "Celentereos":
-                        parametros+=",tentaculos";
-                        valores +=",'"+cCelentereos.tentaculos.getText()+"'";
-                        break;
-                    case "Gusanos":
-                        parametros+=",cuerpo";
-                        valores +=",'"+cGusanos.cuerpoGusano.getText()+"'";
-                        break;
-                    case "Equinodermos":
-                        parametros+=",tipo";
-                        valores +=","+cEquinodermos.tipo.getSelectedItem();
-                        break;
-                    default:
-                        parametros = "";
-                        valores = "";
-                        break;
+                case "Mamiferos":
+                    parametros +=",n_patas";
+                    valores +=","+cMamiferos.patasAnimal.getText();
+                    break;
+                case "Aves":
+                    parametros+=",c_alas";
+                    valores +=",'"+cAves.c_alas.getText()+"'";
+                    break;
+                case "Peces":
+                    parametros+=",escamas,c_aletas";
+                    valores +=",'"+cPeces.escamas.getSelectedItem()+"',"+cPeces.aletas.getText()+"'";
+                    break;
+                case "Reptiles":
+                    parametros+=",tipo";
+                    valores +=",'"+cReptiles.tipoReptil.getSelectedItem()+"'";
+                    break;
+                case "Anfibios":
+                    parametros+=",piel";
+                    valores +=",'"+cAnfibios.tipoPiel.getSelectedItem()+"'";
+                    break;
+                case "Antropodos":
+                    parametros+=",c_pares_patas,antenas";
+                    valores +=",'"+cAntropodos.patasAntropodos.getText()+"','"+cAntropodos.antenas.getSelectedItem()+"'";
+                    break;
+                case "Moluscos":
+                    parametros+=",t_concha";
+                    valores +=","+cMoluscos.concha.getText();
+                    break;
+                case "Celentereos":
+                    parametros+=",tentaculos";
+                    valores +=",'"+cCelentereos.tentaculos.getText()+"'";
+                    break;
+                case "Gusanos":
+                    parametros+=",cuerpo";
+                    valores +=",'"+cGusanos.cuerpoGusano.getText()+"'";
+                    break;
+                case "Equinodermos":
+                    parametros+=",tipo";
+                    valores +=","+cEquinodermos.tipo.getSelectedItem();
+                    break;
+                default:
+                    parametros = "";
+                    valores = "";
+                    break;
                 }
-            System.out.println("INSERT INTO "+parametros+ ") VALUES ("+valores+");");
             PreparedStatement ps = c.prepareStatement("INSERT INTO "+parametros+ ") VALUES ("+valores+");");
             ps.execute();
             c.close();
+            peso.setText("");
+            color.setText("");
+            generarAnimalActionPerformed(evt);
         }
         catch (SQLException ex) {
             System.out.println("ERROR  "+ex);
@@ -306,7 +321,7 @@ public class Clasificar extends javax.swing.JFrame {
     }//GEN-LAST:event_bEnviarActionPerformed
     
     private void mostrarPanel(JPanel p){
-        p.setSize(257,116);
+        p.setSize(257,176);
         p.setLocation(0,0);
         
         panelCambiante.removeAll();
