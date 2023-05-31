@@ -7,6 +7,7 @@ package zoologico.tarea2;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import zoologico.tarea2.paneles_reportes.ReporteCinco;
+import zoologico.tarea2.paneles_reportes.ReporteCuatro;
 import zoologico.tarea2.paneles_reportes.ReporteDos;
 import zoologico.tarea2.paneles_reportes.ReporteTres;
 import zoologico.tarea2.paneles_reportes.ReporteUno;
@@ -80,6 +81,11 @@ public class Reportes extends javax.swing.JFrame {
         });
 
         Boton4.setText("Reporte 4");
+        Boton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Boton4ActionPerformed(evt);
+            }
+        });
 
         Boton5.setText("Reporte 5");
         Boton5.addActionListener(new java.awt.event.ActionListener() {
@@ -170,6 +176,10 @@ public class Reportes extends javax.swing.JFrame {
     private void Boton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton5ActionPerformed
         mostrarPanel(new ReporteCinco(usuario,contrasena));
     }//GEN-LAST:event_Boton5ActionPerformed
+
+    private void Boton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton4ActionPerformed
+        mostrarPanel(new ReporteCuatro(usuario,contrasena));
+    }//GEN-LAST:event_Boton4ActionPerformed
 
     /**
      * @param args the command line arguments
