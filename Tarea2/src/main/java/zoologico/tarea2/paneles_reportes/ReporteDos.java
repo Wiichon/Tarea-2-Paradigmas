@@ -90,7 +90,7 @@ public class ReporteDos extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         TB = new javax.swing.JTable();
 
-        jLabel1.setText("ELPEPE");
+        jLabel1.setText("Porcentajes de animales por grupo");
 
         TB.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

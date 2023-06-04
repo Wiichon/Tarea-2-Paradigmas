@@ -4,6 +4,16 @@
  */
 package zoologico.tarea2;
 
+import zoologico.tarea2.PanelesModificar.Mmamiferos;
+import zoologico.tarea2.PanelesModificar.Martropodos;
+import zoologico.tarea2.PanelesModificar.Mequinodermos;
+import zoologico.tarea2.PanelesModificar.Mpeces;
+import zoologico.tarea2.PanelesModificar.Mgusanos;
+import zoologico.tarea2.PanelesModificar.Mcelentereos;
+import zoologico.tarea2.PanelesModificar.Mmoluscos;
+import zoologico.tarea2.PanelesModificar.Manfibios;
+import zoologico.tarea2.PanelesModificar.Maves;
+import zoologico.tarea2.PanelesModificar.Mreptiles;
 import java.awt.BorderLayout;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -20,6 +30,14 @@ public class Modificar extends javax.swing.JFrame {
     public String contrasena;
     private Mmamiferos MMamiferos;
     private Maves Maves;
+    private Mpeces Mpeces;
+    private Mreptiles Mreptiles;
+    private Manfibios Manfibios;
+    private Martropodos Martropodos;
+    private Mmoluscos Mmoluscos;
+    private Mequinodermos Mequinodermos;
+    private Mcelentereos Mcelentereos;
+    private Mgusanos Mgusanos;
 
     /**
      * Creates new form Modificar
@@ -63,8 +81,15 @@ public class Modificar extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        volver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(153, 0, 153));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setForeground(new java.awt.Color(102, 255, 0));
+
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -74,7 +99,7 @@ public class Modificar extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 77, Short.MAX_VALUE)
+            .addGap(0, 147, Short.MAX_VALUE)
         );
 
         okBoton.setText("OK");
@@ -113,6 +138,17 @@ public class Modificar extends javax.swing.JFrame {
 
         jLabel4.setText("Color");
 
+        jLabel5.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 102, 255));
+        jLabel5.setText("Modificar animales");
+
+        volver.setText("<<Volver");
+        volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -120,7 +156,8 @@ public class Modificar extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(volver)
+                    .addComponent(jLabel5)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -136,8 +173,14 @@ public class Modificar extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4))
-                        .addGap(295, 295, 295)
-                        .addComponent(bModificar)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(295, 295, 295)
+                                .addComponent(bModificar))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(39, 39, 39)))))
                 .addContainerGap(47, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -145,17 +188,23 @@ public class Modificar extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(bModificar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(46, Short.MAX_VALUE)
+                        .addGap(11, 11, 11)
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(okBoton)
                             .addComponent(grupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1)
-                        .addGap(5, 5, 5)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(bModificar)))
+                .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(ID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
@@ -169,9 +218,9 @@ public class Modificar extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(mcolor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
+                        .addComponent(volver)
+                        .addGap(15, 15, 15))))
         );
 
         pack();
@@ -191,31 +240,39 @@ public class Modificar extends javax.swing.JFrame {
                     Maves=new Maves();
                     mostrarPanel(Maves);
                     break;
-//                case "Peces":
-//                    
-//                    break;
-//                case "Reptiles":
-//                    
-//                    
-//                    break;
-//                case "Anfibios":
-//                    
-//                    break;
-//                case "Antropodos":
-//                    
-//                    break;
-//                case "Moluscos":
-//                   
-//                    break;
-//                case "Celentereos":
-//                    
-//                    break;
-//                case "Gusanos":
-//                    
-//                    break;
-//                case "Equinodermos":
-//                    
-//                    break;
+                case "Peces":
+                    Mpeces=new Mpeces();
+                    mostrarPanel(Mpeces);
+                    break;
+                case "Reptiles":
+                    Mreptiles=new Mreptiles();
+                    mostrarPanel(Mreptiles);                 
+                    break;
+                case "Anfibios":
+                    Manfibios=new Manfibios();
+                    mostrarPanel(Manfibios);  
+                    break;
+
+                case "Antropodos":
+                    Martropodos=new Martropodos();
+                    mostrarPanel(Martropodos);  
+                    break;
+                case "Moluscos":
+                    Mmoluscos=new Mmoluscos();
+                    mostrarPanel(Mmoluscos);  
+                    break;
+                case "Celentereos":
+                    Mcelentereos= new Mcelentereos();
+                    mostrarPanel(Mcelentereos);
+                    break;
+                case "Gusanos":
+                    Mgusanos= new Mgusanos();
+                    mostrarPanel(Mgusanos);
+                    break;
+                case "Equinodermos":
+                    Mequinodermos= new Mequinodermos();
+                    mostrarPanel(Mequinodermos);
+                    break;
                 }
     }//GEN-LAST:event_okBotonActionPerformed
 
@@ -232,38 +289,29 @@ public class Modificar extends javax.swing.JFrame {
                     set +=",n_alas="+Maves.datoEspecial.getText();
                     break;
                 case "Peces":
-                    set +=",n_alas="+Mpeces.datoEspecial.getText();
+                    set +=",c_aletas="+Mpeces.datoEspecial.getText()+",escamas="+Mpeces.datoEspecialDos.getSelectedItem().toString();
                     break;
                 case "Reptiles":
-                    set +=",n_alas="+Mrepitles.datoEspecial.getText();
+                    set +=",tipo="+"'"+Mreptiles.datoEspecial.getSelectedItem().toString()+"'";
                     break;
                 case "Anfibios":
-                    set +=",n_alas="+Manfibios.datoEspecial.getText();
+                    set +=",piel="+Manfibios.datoEspecial.getSelectedItem().toString();
                     break;
-//                case "Antropodos":
-//                    parametros+=",c_pares_patas,antenas";
-//                    valores +=",'"+cAntropodos.patasAntropodos.getText()+"','"+cAntropodos.antenas.getSelectedItem()+"'";
-//                    break;
-//                case "Moluscos":
-//                    parametros+=",t_concha";
-//                    valores +=","+cMoluscos.concha.getText();
-//                    break;
-//                case "Celentereos":
-//                    parametros+=",tentaculos";
-//                    valores +=",'"+cCelentereos.tentaculos.getText()+"'";
-//                    break;
-//                case "Gusanos":
-//                    parametros+=",cuerpo";
-//                    valores +=",'"+cGusanos.cuerpoGusano.getText()+"'";
-//                    break;
-//                case "Equinodermos":
-//                    parametros+=",tipo";
-//                    valores +=","+cEquinodermos.tipo.getSelectedItem();
-//                    break;
-//                default:
-//                    parametros = "";
-//                    valores = "";
-//                    break;
+                case "Antropodos":
+                    set +=",c_pares_patas="+Martropodos.datoEspecial.getText()+",antenas="+Martropodos.datoEspecialDos.getSelectedItem().toString();
+                    break;
+                case "Moluscos":
+                    set +=",t_concha="+Mmoluscos.datoEspecial.getText();
+                    break;
+                case "Celentereos":
+                    set +=",tentaculos="+Mcelentereos.datoEspecial.getSelectedItem().toString();
+                    break;
+                case "Gusanos":
+                    set +=",cuerpo="+Mgusanos.datoEspecial.getText();
+                    break;
+                case "Equinodermos":
+                    set +=",tipo="+Mequinodermos.datoEspecial.getSelectedItem().toString();
+                    break;
                 }
             System.out.println(set);
             PreparedStatement ps = c.prepareStatement("UPDATE "+grupo.getSelectedItem().toString()+" set "+set+" WHERE id="+ID.getText()+";");
@@ -279,6 +327,11 @@ public class Modificar extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_mpesoActionPerformed
 
+    private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
+        new ZoologicoGui(usuario,contrasena).setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_volverActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -292,10 +345,12 @@ public class Modificar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField mcolor;
     private javax.swing.JTextField mnombre;
     private javax.swing.JTextField mpeso;
     private javax.swing.JButton okBoton;
+    private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 }

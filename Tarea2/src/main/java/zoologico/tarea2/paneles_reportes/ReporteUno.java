@@ -88,7 +88,7 @@ public class ReporteUno extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(TB);
 
-        jLabel1.setText("ELPEPE");
+        jLabel1.setText("Tabla de animales cantidades por grupo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

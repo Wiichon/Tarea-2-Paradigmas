@@ -112,7 +112,7 @@ public class Agregar extends javax.swing.JFrame {
             }
         });
 
-        grupo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mamiferos", "Aves", "Reptiles", "Anfibios", "Peces", "Antropodos", "Moluscos", "Equinodermos", "Gusanos", "Poriferos", "Celentereos" }));
+        grupo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mamiferos", "Aves", "Reptiles", "Anfibios", "Peces", "Artropodos", "Moluscos", "Equinodermos", "Gusanos", "Poriferos", "Celentereos" }));
         grupo.setToolTipText("");
         grupo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

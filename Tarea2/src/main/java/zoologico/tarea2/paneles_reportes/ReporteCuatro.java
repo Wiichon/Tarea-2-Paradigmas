@@ -51,7 +51,7 @@ public class ReporteCuatro extends javax.swing.JPanel {
 
         jLabel1.setText("Ingrese animal que desea buscar");
 
-        grupo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mamiferos", "Aves", "Reptiles", "Anfibios", "Peces", "Antropodos", "Moluscos", "Equinodermos", "Gusanos", "Poriferos", "Celentereos" }));
+        grupo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mamiferos", "Aves", "Reptiles", "Anfibios", "Peces", "Artropodos", "Moluscos", "Equinodermos", "Gusanos", "Poriferos", "Celentereos" }));
         grupo.setToolTipText("");
         grupo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,7 +143,7 @@ public class ReporteCuatro extends javax.swing.JPanel {
                 case "Anfibios":
                     columnas.add("Piel");
                     break;
-                case "Antropodos":
+                case "Artropodos":
                     columnas.add("N°patas");
                     columnas.add("Anteans");
                     break;

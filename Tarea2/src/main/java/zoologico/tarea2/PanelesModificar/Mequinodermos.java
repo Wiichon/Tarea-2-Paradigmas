@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package zoologico.tarea2;
+package zoologico.tarea2.PanelesModificar;
 
 /**
  *
  * @author Wilson
  */
-public class Mmamiferos extends javax.swing.JPanel {
+public class Mequinodermos extends javax.swing.JPanel {
 
     /**
      * Creates new form ModificarMamiferos
      */
-    public Mmamiferos() {
+    public Mequinodermos() {
         initComponents();
     }
 
@@ -27,11 +27,13 @@ public class Mmamiferos extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel5 = new javax.swing.JLabel();
-        datoEspecial = new javax.swing.JTextField();
+        datoEspecial = new javax.swing.JComboBox<>();
 
         setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 51, 102), null, null));
 
-        jLabel5.setText("Numero de patas");
+        jLabel5.setText("Tipo de equinodermo");
+
+        datoEspecial.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estrella", "Erizo" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -40,9 +42,9 @@ public class Mmamiferos extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(datoEspecial, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(datoEspecial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -57,7 +59,7 @@ public class Mmamiferos extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JTextField datoEspecial;
+    public javax.swing.JComboBox<String> datoEspecial;
     private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
 }

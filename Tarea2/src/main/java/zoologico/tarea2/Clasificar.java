@@ -212,7 +212,7 @@ public class Clasificar extends javax.swing.JFrame {
                         cAnfibios= new ClasificarAnfibios();
                         mostrarPanel(cAnfibios);
                         break;
-                    case "Antropodos":
+                    case "Artropodos":
                         cAntropodos =new ClasificarAntropodos();
                         mostrarPanel(cAntropodos);
                         break;
@@ -273,7 +273,7 @@ public class Clasificar extends javax.swing.JFrame {
                     break;
                 case "Peces":
                     parametros+=",escamas,c_aletas";
-                    valores +=",'"+cPeces.escamas.getSelectedItem()+"',"+cPeces.aletas.getText()+"'";
+                    valores +=",'"+cPeces.escamas.getSelectedItem()+"',"+cPeces.aletas.getText();
                     break;
                 case "Reptiles":
                     parametros+=",tipo";
@@ -283,13 +283,13 @@ public class Clasificar extends javax.swing.JFrame {
                     parametros+=",piel";
                     valores +=",'"+cAnfibios.tipoPiel.getSelectedItem()+"'";
                     break;
-                case "Antropodos":
+                case "Artropodos":
                     parametros+=",c_pares_patas,antenas";
                     valores +=",'"+cAntropodos.patasAntropodos.getText()+"','"+cAntropodos.antenas.getSelectedItem()+"'";
                     break;
                 case "Moluscos":
                     parametros+=",t_concha";
-                    valores +=","+cMoluscos.concha.getText();
+                    valores +=",'"+cMoluscos.concha.getText()+"'";
                     break;
                 case "Celentereos":
                     parametros+=",tentaculos";
@@ -301,13 +301,10 @@ public class Clasificar extends javax.swing.JFrame {
                     break;
                 case "Equinodermos":
                     parametros+=",tipo";
-                    valores +=","+cEquinodermos.tipo.getSelectedItem();
-                    break;
-                default:
-                    parametros = "";
-                    valores = "";
+                    valores +=",'"+cEquinodermos.tipo.getSelectedItem()+"'";
                     break;
                 }
+            System.out.println("INSERT INTO "+parametros+ ") VALUES ("+valores+");");
             PreparedStatement ps = c.prepareStatement("INSERT INTO "+parametros+ ") VALUES ("+valores+");");
             ps.execute();
             c.close();

@@ -68,7 +68,8 @@ public class ReporteCinco extends javax.swing.JPanel {
                 tp.addRow( new Object[] {"gusanos", Integer.toString(rs.getInt(10)) + "K" });
                 tp.addRow( new Object[] {"equinodermos", Integer.toString(rs.getInt(11)) + "K" });
                 tp.addRow( new Object[] {"Vertebrados", Integer.toString(vertebrados/ 5) + "K" });
-                tp.addRow( new Object[] {"Invertebrados", Integer.toString(invertebrados*100/ 5) + "K" });
+                tp.addRow( new Object[] {"Invertebrados", Integer.toString(invertebrados/ 5) + "K" });
+
             }
             c.close();
         }
@@ -88,6 +89,7 @@ public class ReporteCinco extends javax.swing.JPanel {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         TB = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
         TB.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -99,6 +101,8 @@ public class ReporteCinco extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(TB);
 
+        jLabel1.setText("Promedio de peso por grupo");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -107,11 +111,17 @@ public class ReporteCinco extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 106, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -119,6 +129,7 @@ public class ReporteCinco extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable TB;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }
